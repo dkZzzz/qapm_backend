@@ -1,7 +1,7 @@
 package models
 
 type Message struct {
-	Id      int    `json:"id"`
+	ID      int    `json:"id"`
 	Title   string `json:"title"`
 	Content string `json:"content"`
 	Type    int    `json:"type"`
@@ -9,7 +9,7 @@ type Message struct {
 }
 
 type Compare struct {
-	Id        string `json:"id"`
+	ID        string `json:"id"`
 	Created   string `json:"created"`
 	Status    int    `json:"status"`
 	BeforeUrl string `json:"beforeUrl"`
@@ -18,7 +18,7 @@ type Compare struct {
 }
 
 type Pa struct {
-	Id      string `json:"id"`
+	ID      string `json:"id"`
 	Created string `json:"created"`
 	Status  int    `json:"status"`
 	Url     string `json:"url"`
@@ -26,7 +26,7 @@ type Pa struct {
 }
 
 type Optimize struct {
-	Id      string `json:"id"`
+	ID      string `json:"id"`
 	Created string `json:"created"`
 	Status  int    `json:"status"`
 	User    int    `json:"user"`
