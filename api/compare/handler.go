@@ -1,6 +1,8 @@
 package compare
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 type CreateCompareReq struct {
 	User           int    `json:"user"`
@@ -21,7 +23,7 @@ func CreateCompare(c *gin.Context) {
 		})
 		return
 	}
-	// TODO: create compare
+
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",

@@ -12,16 +12,11 @@ type Message struct {
 
 // MsgList 处理获取消息列表的请求
 func MsgList(c *gin.Context) {
-	// TODO: 实际业务逻辑，从数据库或其他地方获取消息列表
-	messages := []Message{
-		{ID: "1", Title: "Welcome", Body: "Hello, welcome to our system!"},
-		{ID: "2", Title: "New Feature", Body: "Check out the latest features."},
-	}
 
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": messages,
+		"data": gin.H{},
 	})
 }
 
@@ -29,11 +24,9 @@ func MsgList(c *gin.Context) {
 func MsgHaveRead(c *gin.Context) {
 	msgID := c.Param("id")
 
-	// TODO: 实际业务逻辑，更新数据库或其他地方的消息状态
-
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": msgID,
+		"data": gin.H{"msgID": msgID},
 	})
 }

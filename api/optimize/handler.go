@@ -19,7 +19,7 @@ func CreateOptimize(c *gin.Context) {
 		})
 		return
 	}
-	// TODO: create optimize
+
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
@@ -28,7 +28,6 @@ func CreateOptimize(c *gin.Context) {
 }
 
 func GetOptimizeList(c *gin.Context) {
-	// TODO: get optimize list
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
