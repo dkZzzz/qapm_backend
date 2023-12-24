@@ -5,7 +5,7 @@ import "github.com/gin-gonic/gin"
 type Pa struct {
 	User        int    `json:"user"`
 	URL         string `json:"url"`
-	ErrorDetect int    `json:"errorDetect"`
+	ErrorDetect bool    `json:"errorDetect"`
 	Timeout     int    `json:"timeout"`
 	OptReport   int    `json:"optReport"`
 }

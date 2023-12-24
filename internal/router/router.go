@@ -9,25 +9,26 @@ import (
 )
 
 func RegisterRoutes(r *gin.Engine) {
-	msgGroup := r.Group("/msg")
+	api := r.Group("/api")
+	msgGroup := api.Group("/msg")
 	{
 		msgGroup.GET("/list", msg.MsgList)
 		msgGroup.PUT("/:id", msg.MsgHaveRead)
 	}
 
-	compareGroup := r.Group("/compare")
+	compareGroup := api.Group("/compare")
 	{
 		compareGroup.POST("", compare.CreateCompare)
 		compareGroup.GET("", compare.GetCompareList)
 	}
 
-	paGroup := r.Group("/pa")
+	paGroup := api.Group("/pa")
 	{
 		paGroup.POST("", pa.CreatePa)
 		paGroup.GET("", pa.GetPaList)
 	}
 
-	optimizeGroup := r.Group("/optimize")
+	optimizeGroup := api.Group("/optimize")
 	{
 		optimizeGroup.POST("", optimize.CreateOptimize)
 		optimizeGroup.GET("", optimize.GetOptimizeList)

@@ -8,7 +8,7 @@ type CreateCompareReq struct {
 	User           int    `json:"user"`
 	BeforeUrl      string `json:"before_url"`
 	AfterUrl       string `json:"after_url"`
-	OptReport      int    `json:"optReport"`
+	OptReport      bool    `json:"optReport"`
 	ScreenShotSpan int    `json:"screenshotSpan"`
 }
 

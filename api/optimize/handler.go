@@ -3,9 +3,10 @@ package optimize
 import "github.com/gin-gonic/gin"
 
 type Optimize struct {
-	User    int    `json:"user"`
-	URL     string `json:"url"`
-	Timeout int    `json:"timeout"`
+	User       int    `json:"user"`
+	URL        string `json:"url"`
+	Timeout    int    `json:"timeout"`
+	GptVersion string `json:"gptVersion"`
 }
 
 func CreateOptimize(c *gin.Context) {
