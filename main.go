@@ -15,7 +15,7 @@ func main() {
 
 	r := gin.Default()
 	router.RegisterRoutes(r)
-	err := r.Run(":6666")
+	err := r.Run(":8080")
 	if err != nil {
 		panic(err)
 	}
