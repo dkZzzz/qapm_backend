@@ -7,7 +7,7 @@ type Pa struct {
 	URL         string `json:"url"`
 	ErrorDetect bool    `json:"errorDetect"`
 	Timeout     int    `json:"timeout"`
-	OptReport   int    `json:"optReport"`
+	OptReport   bool    `json:"optReport"`
 }
 
 func CreatePa(c *gin.Context) {
