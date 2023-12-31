@@ -13,6 +13,7 @@ func main() {
 	// }
 	// defer models.DB.Close()
 
+	// gin.DefaultWriter = os.Stdout
 	r := gin.Default()
 	router.RegisterRoutes(r)
 	err := r.Run(":8080")

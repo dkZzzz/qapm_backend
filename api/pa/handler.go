@@ -1,13 +1,17 @@
 package pa
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/dkZzzz/qapm_backend/config"
+	"github.com/dkZzzz/qapm_backend/request"
+	"github.com/gin-gonic/gin"
+)
 
 type Pa struct {
 	User        int    `json:"user"`
 	URL         string `json:"url"`
-	ErrorDetect bool    `json:"errorDetect"`
+	ErrorDetect int    `json:"errorDetect"`
 	Timeout     int    `json:"timeout"`
-	OptReport   bool    `json:"optReport"`
+	OptReport   int    `json:"optReport"`
 }
 
 func CreatePa(c *gin.Context) {
@@ -21,19 +25,40 @@ func CreatePa(c *gin.Context) {
 		})
 		return
 	}
-	// TODO: create pa
+
+	url := config.BaseURL + "performance"
+	BodyData := map[string]interface{}{
+		"user":        req.User,
+		"url":         req.URL,
+		"errorDetect": req.ErrorDetect,
+		"timeout":     req.Timeout,
+		"optReport":   req.OptReport,
+	}
+	resp := request.POST(url, BodyData)
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": req,
+		"data": resp,
 	})
 }
 
 func GetPaList(c *gin.Context) {
-	// TODO: get pa list
+	url := config.BaseURL + "performanceList"
+	resp := request.GET(url)
 	c.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
-		"data": []gin.H{},
+		"data": resp,
+	})
+}
+
+func GetPaDetail(c *gin.Context) {
+	id := c.Param("id")
+	url := config.BaseURL + "performanceDetail?id=" + id
+	resp := request.GET(url)
+	c.JSON(200, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": resp,
 	})
 }
