@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/dkZzzz/qapm_backend/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -10,7 +11,10 @@ var (
 )
 
 func InitDB() (*gorm.DB, error) {
-	db, err := gorm.Open("mysql", "root:20021210@(127.0.0.1:3306)/qapm?charset=utf8mb4&parseTime=True&loc=Local")
+	user := config.DbUser
+	password := config.DbPassword
+	str := user + ":" + password + "@(" + config.DbHost + ":" + config.DbPort + ")/" + config.DbName + "?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open("mysql", str)
 	if err != nil {
 		return nil, err
 	}

@@ -8,8 +8,8 @@ import (
 
 type CreateCompareReq struct {
 	User           int    `form:"user" json:"user"`
-	BeforeUrl      string `form:"before_url" json:"before_url"`
-	AfterUrl       string `form:"after_url" json:"after_url"`
+	BeforeUrl      string `form:"beforeUrl" json:"beforeUrl"`
+	AfterUrl       string `form:"afterUrl" json:"afterUrl"`
 	OptReport      bool   `form:"optReport" json:"optReport"`
 	ScreenShotSpan int    `form:"screenshotSpan" json:"screenshotSpan"`
 }
@@ -28,8 +28,8 @@ func CreateCompare(c *gin.Context) {
 
 	BodyData := map[string]interface{}{
 		"user":           req.User,
-		"before_url":     req.BeforeUrl,
-		"after_url":      req.AfterUrl,
+		"beforeUrl":      req.BeforeUrl,
+		"afterUrl":       req.AfterUrl,
 		"optReport":      req.OptReport,
 		"screenshotSpan": req.ScreenShotSpan,
 	}

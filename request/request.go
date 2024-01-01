@@ -25,19 +25,19 @@ func POST(url string, BodyData map[string]interface{}) (responseData map[string]
 
 	response, err := http.Post(url, "application/json", bytes.NewBufferString(mapToJSON(BodyData)))
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	defer response.Body.Close()
 
 	responseBody, err := io.ReadAll(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	err = json.Unmarshal(responseBody, &responseData)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	return
 }
@@ -48,19 +48,19 @@ func POST(url string, BodyData map[string]interface{}) (responseData map[string]
 func GET(url string) (responseData map[string]interface{}) {
 	response, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	defer response.Body.Close()
 
 	responseBody, err := io.ReadAll(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	err = json.Unmarshal(responseBody, &responseData)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	return
 }
@@ -68,24 +68,24 @@ func GET(url string) (responseData map[string]interface{}) {
 func PUT(url string) (responseData map[string]interface{}) {
 	request, err := http.NewRequest("PUT", url, nil)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	client := &http.Client{}
 	response, err := client.Do(request)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	defer response.Body.Close()
 
 	responseBody, err := io.ReadAll(response.Body)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	err = json.Unmarshal(responseBody, &responseData)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	return
 }

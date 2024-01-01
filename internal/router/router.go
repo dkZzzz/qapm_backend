@@ -33,6 +33,7 @@ func RegisterRoutes(r *gin.Engine) {
 	optimizeGroup := api.Group("/optimize")
 	{
 		optimizeGroup.POST("", optimize.CreateOptimize)
-		optimizeGroup.GET("", optimize.GetOptimizeList)
+		optimizeGroup.GET("", optimize.GetOptimizeByUser)
+		optimizeGroup.GET("/:id", optimize.GetOptimizeById)
 	}
 }

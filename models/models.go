@@ -1,7 +1,7 @@
 package models
 
 type Message struct {
-	ID      int    `json:"id"`
+	ID      int    `gorm:"primaryKey;autoIncrement" json:"id"`
 	Title   string `json:"title"`
 	Content string `json:"content"`
 	Type    int    `json:"type"`
@@ -9,7 +9,7 @@ type Message struct {
 }
 
 type Compare struct {
-	ID        string `json:"id"`
+	ID        string `gorm:"primaryKey;autoIncrement" json:"id"`
 	Created   string `json:"created"`
 	Status    int    `json:"status"`
 	BeforeUrl string `json:"beforeUrl"`
@@ -18,7 +18,7 @@ type Compare struct {
 }
 
 type Pa struct {
-	ID      string `json:"id"`
+	ID      string `gorm:"primaryKey;autoIncrement" json:"id"`
 	Created string `json:"created"`
 	Status  int    `json:"status"`
 	Url     string `json:"url"`
@@ -26,9 +26,9 @@ type Pa struct {
 }
 
 type Optimize struct {
-	ID      string `json:"id"`
-	Created string `json:"created"`
-	Status  int    `json:"status"`
-	User    int    `json:"user"`
-	TaskId  string `json:"taskId"`
+	ID         int    `gorm:"primaryKey;autoIncrement" json:"id"`
+	User       int    `json:"user"`
+	TaskId     string `json:"taskId"`
+	GptVersion string `json:"gptVersion"`
+	Url        string `json:"url"`
 }
