@@ -9,9 +9,9 @@ import (
 type Pa struct {
 	User        int    `json:"user"`
 	URL         string `json:"url"`
-	ErrorDetect int    `json:"errorDetect"`
+	ErrorDetect bool   `json:"errorDetect"`
 	Timeout     int    `json:"timeout"`
-	OptReport   int    `json:"optReport"`
+	OptReport   bool   `json:"optReport"`
 }
 
 func CreatePa(c *gin.Context) {

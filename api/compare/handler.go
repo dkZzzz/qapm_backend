@@ -1,8 +1,6 @@
 package compare
 
 import (
-	"log"
-
 	config "github.com/dkZzzz/qapm_backend/config"
 	request "github.com/dkZzzz/qapm_backend/request"
 	"github.com/gin-gonic/gin"
@@ -12,14 +10,13 @@ type CreateCompareReq struct {
 	User           int    `form:"user" json:"user"`
 	BeforeUrl      string `form:"before_url" json:"before_url"`
 	AfterUrl       string `form:"after_url" json:"after_url"`
-	OptReport      int    `form:"optReport" json:"optReport"`
-	ScreenshotSpan int    `form:"screenshotSpan" json:"screenshotSpan"`
+	OptReport      bool   `form:"optReport" json:"optReport"`
+	ScreenShotSpan int    `form:"screenshotSpan" json:"screenshotSpan"`
 }
 
 func CreateCompare(c *gin.Context) {
 	var req CreateCompareReq
 	err := c.ShouldBind(&req)
-	log.Println(req)
 	if err != nil {
 		c.JSON(400, gin.H{
 			"code": 1,
@@ -34,7 +31,7 @@ func CreateCompare(c *gin.Context) {
 		"before_url":     req.BeforeUrl,
 		"after_url":      req.AfterUrl,
 		"optReport":      req.OptReport,
-		"screenshotSpan": req.ScreenshotSpan,
+		"screenshotSpan": req.ScreenShotSpan,
 	}
 
 	url := config.BaseURL + "diff"
