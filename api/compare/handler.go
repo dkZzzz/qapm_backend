@@ -46,7 +46,8 @@ func CreateCompare(c *gin.Context) {
 }
 
 func GetCompareList(c *gin.Context) {
-	url := config.BaseURL + "diffList"
+	user := c.Query("user")
+	url := config.BaseURL + "diffList?user=" + user
 	resp := request.GET(url)
 	c.JSON(200, gin.H{
 		"code": 0,

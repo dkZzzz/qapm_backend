@@ -43,7 +43,8 @@ func CreatePa(c *gin.Context) {
 }
 
 func GetPaList(c *gin.Context) {
-	url := config.BaseURL + "performanceList"
+	user := c.Query("user")
+	url := config.BaseURL + "performanceList?user=" + user
 	resp := request.GET(url)
 	c.JSON(200, gin.H{
 		"code": 0,
